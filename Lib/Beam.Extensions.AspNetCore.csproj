@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Title>Beam.Extensions.AspNetCore.Mvc</Title>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>A Set of ASP.NET Core 7 extensions to register dbcontext, identity, JWT, localization, compression...</Description>
+    <Copyright>Diyare Abdullah</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <Authors>Diyare Abdulla</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>BeamCode.Extensions.AspNetCore.Mvc</PackageId>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.0" />
+    </ItemGroup>
+
+</Project>

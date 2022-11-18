@@ -1,0 +1,13 @@
+﻿global using System.Globalization;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.AspNetCore.Localization;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Options;
+global using Microsoft.AspNetCore.Authentication.Cookies;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.IdentityModel.Tokens;
+global using System.IO.Compression;
+global using Microsoft.AspNetCore.ResponseCompression;
