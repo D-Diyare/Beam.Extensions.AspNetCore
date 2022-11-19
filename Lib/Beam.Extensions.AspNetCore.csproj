@@ -4,7 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Title>Beam.Extensions.AspNetCore.Mvc</Title>
+    <Title>Beam.Extensions.AspNetCore</Title>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>A Set of ASP.NET Core 7 extensions to register dbcontext, identity, JWT, localization, compression...</Description>
     <Copyright>Diyare Abdullah</Copyright>
@@ -12,8 +12,9 @@
     <Authors>Diyare Abdulla</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>BeamCode.Extensions.AspNetCore.Mvc</PackageId>
+    <PackageId>BeamCode.Extensions.AspNetCore</PackageId>
     <Version>1.0.0</Version>
+    <PackageIconUrl>asp.png</PackageIconUrl>
   </PropertyGroup>
 
     <ItemGroup>
