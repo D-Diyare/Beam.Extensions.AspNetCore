@@ -2,7 +2,7 @@
 
 namespace Beam.Extensions.AspNetCore;
 
-internal static class RegisterCompression
+public static class RegisterCompression
 {
     /// <summary>
     /// Registers response compression using brotlic & gzip providers, you can find the list of extensions to be compressed in the repo (MimeTypes).

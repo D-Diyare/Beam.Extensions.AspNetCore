@@ -1,6 +1,6 @@
 ﻿namespace Beam.Extensions.AspNetCore;
 
-internal static class LocalizationRegistration
+public static class LocalizationRegistration
 {
 
     /// <summary>

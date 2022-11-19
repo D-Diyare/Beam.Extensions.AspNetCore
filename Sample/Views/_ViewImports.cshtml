@@ -1,3 +1,7 @@
 ﻿@using Beam.Extensions.AspNetCore.Sample
 @using Beam.Extensions.AspNetCore.Sample.Models
+@using Microsoft.AspNetCore.Mvc.Localization;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@*Need this to be able to localize views.*@
+@inject IViewLocalizer Localize

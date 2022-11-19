@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "bootstrap-rtl@3.3.4",
+      "destination": "wwwroot/lib/bootstrap/",
+      "files": [
+        "dist/css/bootstrap-rtl.css",
+        "dist/css/bootstrap-rtl.css.map",
+        "dist/css/bootstrap-rtl.min.css"
+      ]
+    }
+  ]
+}

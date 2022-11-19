@@ -1,0 +1,91 @@
+﻿@{
+    var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
+
+    var dir = culture?.RequestCulture.UICulture.TwoLetterISOLanguageName == "ar" ? "rtl" : "ltr";
+    var twoLetter = culture?.RequestCulture.UICulture.TwoLetterISOLanguageName;
+
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
+}
+<!DOCTYPE html>
+<html lang="@twoLetter" dir="@dir">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Beam.Extensions.AspNetCore.Sample</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @if (dir == "rtl")
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" />
+    }
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Beam.Extensions.AspNetCore.Sample.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Beam.Extensions.AspNetCore.Sample</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@Localize["Home"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">@Localize["Privacy"]</a>
+                        </li>
+                        <li class="dropdown">
+                          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            Language</a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li>
+                                <a class="dropdown-item" asp-action="SetLanguage"
+                                    asp-controller="Home"
+                                    asp-route-culture="en"
+                                    asp-route-returnUrl="@returnUrl">English</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" asp-action="SetLanguage"
+                                    asp-controller="Home"
+                                    asp-route-culture="de"
+                                    asp-route-returnUrl="@returnUrl">German</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" asp-action="SetLanguage" 
+                                asp-controller="Home"
+                                asp-route-culture="es"
+                                asp-route-returnUrl="@returnUrl">Spanish</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" asp-action="SetLanguage"
+                                    asp-controller="Home"
+                                    asp-route-culture="ar"
+                                    asp-route-returnUrl="@returnUrl">Arabic</a>
+                            </li>
+                          </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Beam.Extensions.AspNetCore.Sample - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
