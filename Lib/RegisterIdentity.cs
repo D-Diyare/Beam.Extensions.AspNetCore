@@ -76,9 +76,8 @@ public static class RegisterIdentity
     /// Add JWT identity.
     /// </summary>
     /// <param name="services">Service collection</param>
-    /// <param name="configuration">Configuration</param>
     /// <returns>IService collection after registering the JWT identity.</returns>
-    public static IServiceCollection AddJwtService(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddJwtService(this IServiceCollection services)
     {
         services.AddAuthentication(auth =>
         {
@@ -94,6 +93,24 @@ public static class RegisterIdentity
         });
         return services;
     }
+
+    /// <summary>
+    /// Add JWT identity.
+    /// </summary>
+    /// <param name="services">Service collection</param>
+    /// <param name="configureOptions">Configure JWT bearer options.</param>
+    /// <returns>IService collection after registering the JWT identity.</returns>
+    public static IServiceCollection AddJwtService(this IServiceCollection services, Action<JwtBearerOptions> configureOptions)
+    {
+        services.AddAuthentication(auth =>
+        {
+            auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        }).AddJwtBearer(configureOptions);
+        return services;
+    }
+    
+    
     /// <summary>
     /// Add policy authorizations based on given names and roles.
     /// </summary>

@@ -13,7 +13,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>BeamCode.Extensions.AspNetCore</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageIconUrl>asp.png</PackageIconUrl>
     <PackageTags>Asp, Asp.net, Asp.net core, core, entityframework, extensions, asp extensions, mvc, api</PackageTags>
     <RepositoryUrl>https://github.com/D-Diyare/Beam.Extensions.AspNetCore</RepositoryUrl>

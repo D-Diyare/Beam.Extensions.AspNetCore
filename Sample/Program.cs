@@ -23,14 +23,14 @@ builder.Services.AddControllersWithViews()
     .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
     ;
 
-// Regisering DbContext as scoped (this can be chained as it resturns IServiceCollection).
+// Registering DbContext as scoped (this can be chained as it resturns IServiceCollection).
 builder.Services.RegisterDbContext<SampleContext>(
     configuration: builder.Configuration,
     connectionStringName: "Development",
     timeOut: 30);
 
 // Add JWT identity service.
-builder.Services.AddJwtService(builder.Configuration)
+builder.Services.AddJwtService()
 // Add default identity service (you can also configure the identity options inside).
     .AddIdentityService<SampleContext, ApplicationUser, Role, Guid>()
 // Configuring TokenLifeSpan
@@ -41,7 +41,7 @@ builder.Services.AddAuthorizations(new Dictionary<string, string[]>
 {
     {
         Constants.AdminPolicy,
-        new string[]
+        new []
         {
             Constants.AdminRole,
             Constants.SuperAdminRole
@@ -49,7 +49,7 @@ builder.Services.AddAuthorizations(new Dictionary<string, string[]>
     },
     {
         Constants.EmployeePolicy,
-        new string[]
+        new []
         {
             Constants.EmployeeRole
         }
@@ -57,7 +57,7 @@ builder.Services.AddAuthorizations(new Dictionary<string, string[]>
 });
 
 // Registering response compression (you can also configure the compression inside).
-// the compression providers used are: Brotlic & Gzip
+// the compression providers used are: Brotli & Gzip
 builder.Services.RegisterResponseCompression()
 // Configuring the compression ( you can also configure the compression level)
     .ConfigureResponseCompression();

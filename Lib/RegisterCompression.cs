@@ -5,7 +5,7 @@ namespace Beam.Extensions.AspNetCore;
 public static class RegisterCompression
 {
     /// <summary>
-    /// Registers response compression using brotlic & gzip providers, you can find the list of extensions to be compressed in the repo (MimeTypes).
+    /// Registers response compression using Brotli & GZip providers, you can find the list of extensions to be compressed in the repo (MimeTypes).
     /// </summary>
     /// <param name="services">Service collection</param>
     /// <returns>IService collection after registering the response compression.</returns>
@@ -23,7 +23,7 @@ public static class RegisterCompression
     }
 
     /// <summary>
-    /// Registers response compression using brotlic & gzip providers, you can find the list of extensions to be compressed in the repo (MimeTypes).
+    /// Registers response compression using Brotli & GZip providers, you can find the list of extensions to be compressed in the repo (MimeTypes).
     /// </summary>
     /// <param name="services">Service collection</param>
     /// <param name="options">Options to configure the compression registration</param>
@@ -35,7 +35,7 @@ public static class RegisterCompression
     }
 
     /// <summary>
-    /// Configures response compression, default: brotlic compression = Fastest, gizp compression = SmallestSize
+    /// Configures response compression, default: Brotli compression = Fastest, GZip compression = SmallestSize
     /// </summary>
     /// <param name="services">Service collection</param>
     /// <returns>IService collection after the compression is configured.</returns>
@@ -54,17 +54,17 @@ public static class RegisterCompression
     /// Configures response compression based on given levels.
     /// </summary>
     /// <param name="services">Service collection</param>
-    /// <param name="brotlicCompressionLevel">Brotlic Compression Level</param>
+    /// <param name="brotliCompressionLevel">Brotli Compression Level</param>
     /// <param name="gzipCompressionLevel">Gzip Compression Level</param>
-    /// <typeparam name="TBrotlic">Brotlic Compression Level</typeparam>
+    /// <typeparam name="TBrotli">Brotli Compression Level</typeparam>
     /// <typeparam name="TGzip">Gzip Compression Level</typeparam>
     /// <returns>IService collection after the compression is configured.</returns>
-    public static IServiceCollection ConfigureResponseCompression<TBrotlic, TGzip>(this IServiceCollection services,
-        CompressionLevel brotlicCompressionLevel, CompressionLevel gzipCompressionLevel)
-        where TBrotlic : BrotliCompressionProviderOptions
+    public static IServiceCollection ConfigureResponseCompression<TBrotli, TGzip>(this IServiceCollection services,
+        CompressionLevel brotliCompressionLevel, CompressionLevel gzipCompressionLevel)
+        where TBrotli : BrotliCompressionProviderOptions
         where TGzip : GzipCompressionProviderOptions
     {
-        services.Configure<TBrotlic>(options => options.Level = brotlicCompressionLevel);
+        services.Configure<TBrotli>(options => options.Level = brotliCompressionLevel);
         services.Configure<TGzip>(options => options.Level = gzipCompressionLevel);
 
         return services;
